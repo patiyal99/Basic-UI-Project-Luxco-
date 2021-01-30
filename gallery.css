@@ -1,0 +1,105 @@
+.services-section{
+    background-color: var(--darkgray);
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 8rem;
+
+}
+
+.services-heading{
+    color: var(--white);
+    text-align:center;
+    margin-bottom: 2rem;
+    padding-top: 3rem;
+}
+
+.services{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    transform: translateY(80px);
+    padding: 0;
+    background-color: var(--darkgray);
+    height: auto;
+}
+
+.services-cell{
+    flex: 0 1 250px;
+    max-width: 250px;
+    height: 275px;
+    margin: 2px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    box-shadow: 0px 0px 15px 0 rgba(0,0,0,0.8);
+    clip-path: polygon(50% 0%, 100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+    cursor: pointer;
+}
+
+.services-cell_img{
+    object-fit: cover;
+    object-position: center;
+}
+
+.services-cell_text{
+    height: 100%;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    transition: opacity 350ms;
+    text-shadow: 2px 2px 2px var(--darkgray);
+}
+
+.services-cell::before, .services-cell::after, .services-cell_img{
+    top: -50%;
+    width: 100%;
+    height: 200%;
+    display: block;
+    position: absolute;
+    clip-path: polygon(50% 0%, 100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+    z-index:-1;
+}
+
+.services-cell:hover{
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.2);
+    z-index:99;
+    overflow: hidden;
+}
+
+.services-cell:before{
+    content: '';
+    position: absolute;
+    opacity: 0.4;
+    width: 350px;
+    height: 70px;
+    background:var(--white);
+    top: 50;
+    left: 0;
+    z-index: 1;
+    transform: roate(45deg);
+    transition: transform 1.5s;
+}
+
+.services-cell:hover:before{
+    transform: translate(-100px,600%) rotate(45deg);
+    transition: transform 0.5s;
+}
+
+@media (min-width:1100px){
+    .services-cell:nth-child(n+5){
+        position: relative;
+        top: -70px;
+    }
+}
